@@ -15,6 +15,9 @@
     &__wrap {
         flex-wrap: wrap;
     }
+    &__reverse{
+        flex-direction: row-reverse;
+    }
 }
 
 /*Spacing*/

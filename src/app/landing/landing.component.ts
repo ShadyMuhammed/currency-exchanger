@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {NgIf} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { Component ,OnInit } from '@angular/core';
+// import { ExServiceService } from '../ex-service.service';
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.sass']
 })
-export class LandingComponent {
+export class LandingComponent implements OnInit{
   value = 'Clear me';
+  constructor(){
+
+  }
+  ngOnInit(){
+    console.log("rr")
+    // this.ser.getDate().subscribe()
+  }
+ 
 }
+
+
