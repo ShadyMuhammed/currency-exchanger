@@ -1,0 +1,56 @@
+/* please be informed that i'm using BEM convinsion for naming and nesting*/
+
+/*Grid Styles*/
+.flex {
+    display: flex;
+
+    &__align-center {
+        align-items: center;
+    }
+
+    &__justify-center {
+        justify-content: center;
+    }
+
+    &__wrap {
+        flex-wrap: wrap;
+    }
+}
+
+/*Spacing*/
+.mt-15 {
+    margin-top: 15px;
+}
+
+.relative {
+    position: relative;
+}
+
+.shadow {
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.04);
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+.ml-15 {
+    margin-left: 15px;
+}
+
+.mr-max {
+    margin-right: auto;
+}
+
+/*Global Styles */
+.app-wrapper{
+    padding-top: 90px;
+}
