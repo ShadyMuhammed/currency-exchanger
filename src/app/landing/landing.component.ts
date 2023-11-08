@@ -1,5 +1,5 @@
 import { Component ,OnInit } from '@angular/core';
-// import { ExServiceService } from '../ex-service.service';
+import { ExServiceService } from '../ex-service.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,13 +7,13 @@ import { Component ,OnInit } from '@angular/core';
   styleUrls: ['./landing.component.sass']
 })
 export class LandingComponent implements OnInit{
-  value = 'Clear me';
-  constructor(){
+  value:string = '';
+  constructor(private ser:ExServiceService){
 
   }
   ngOnInit(){
-    console.log("rr")
-    // this.ser.getDate().subscribe()
+    // console.log("rr")
+    this.ser.getDate().subscribe()
   }
  
 }
