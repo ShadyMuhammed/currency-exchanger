@@ -10,8 +10,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
-import { ExServiceService } from './ex-service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ExServices } from './ex-service.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { LoadingInterceptor } from './utilities/loading/loading.interceptor';
+import { LoadingService } from './services/loading.service';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    NgxUiLoaderModule,
     FormsModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     HttpClientModule
   ],
   providers: [
-    ExServiceService
+    ExServices,
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
+    LoadingService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 import { Component ,OnInit } from '@angular/core';
-import { ExServiceService } from '../ex-service.service';
+import { ExServices } from '../ex-service.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-landing',
@@ -8,12 +9,14 @@ import { ExServiceService } from '../ex-service.service';
 })
 export class LandingComponent implements OnInit{
   value:string = '';
-  constructor(private ser:ExServiceService){
+
+  constructor(private currencyService:ExServices){
 
   }
   ngOnInit(){
     // console.log("rr")
-    this.ser.getDate().subscribe()
+    this.currencyService.getRates()
+    .subscribe(r => console.log(r.rates))
   }
  
 }
