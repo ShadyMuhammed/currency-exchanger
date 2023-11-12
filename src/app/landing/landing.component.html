@@ -16,7 +16,7 @@
 <div class="inputs-warpper flex flex__space-between m-auto">
   <mat-form-field class="example-form-field ">
     <mat-label>Currencies List</mat-label>
-    <mat-select matNativeControl [(ngModel)]="fromValue" (selectionChange)="result=''">
+    <mat-select matNativeControl [(ngModel)]="fromValue" (selectionChange)="getMostPopular(true)">
       <mat-option *ngFor="let r of rateNames" value="{{r}}">{{r}}</mat-option>
     </mat-select>
   </mat-form-field>
@@ -30,3 +30,11 @@
 </div>
 
 <button mat-button color="primary" class="m-auto d-block mt-15" (click)="convert()" [disabled]="!fromValue || !toValue || !value">Convert</button>
+
+
+<div class="flex flex__wrap flex__space-between grid m-auto">
+  <div class="grid__item" *ngFor="let x of mostPopular">
+     1 {{fromValue}} <br> equals <br> <b> {{x.equals}} </b><br> {{x.name}} 
+  </div>
+
+</div>
