@@ -15,7 +15,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { LoadingInterceptor } from './utilities/loading/loading.interceptor';
 import { LoadingService } from './services/loading.service';
-
+import {MatSelectModule} from '@angular/material/select';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +32,11 @@ import { LoadingService } from './services/loading.service';
     NgxUiLoaderModule,
     FormsModule,
     MatFormFieldModule,
+    MatSelectModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    ToastrModule.forRoot(),
+    HttpClientModule,
+    
   ],
   providers: [
     ExServices,

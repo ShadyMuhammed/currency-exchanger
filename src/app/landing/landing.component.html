@@ -1,16 +1,32 @@
-<div class="flex flex__justify-center">
-    <mat-form-field class="example-form-field ml-15">
-        <mat-label>EGP </mat-label>
-        <input matInput type="number" [(ngModel)]="value">
-        <button  matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-      <mat-form-field class="example-form-field ml-15">
-        <mat-label>USD </mat-label>
-        <input matInput type="number" [(ngModel)]="value">
-        <button  matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
+<div class="inputs-warpper flex flex__space-between m-auto">
+  <mat-form-field class="example-form-field ">
+    <mat-label>Value </mat-label>
+    <input matInput type="number" [(ngModel)]="value">
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="result=0">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-form-field ">
+    <mat-label>Equals </mat-label>
+    <input matInput type="number" readonly="true" [value]="result">
+
+  </mat-form-field>
+  
 </div>
+<div class="inputs-warpper flex flex__space-between m-auto">
+  <mat-form-field class="example-form-field ">
+    <mat-label>Currencies List</mat-label>
+    <mat-select matNativeControl [(ngModel)]="fromValue" (selectionChange)="result=''">
+      <mat-option *ngFor="let r of rateNames" value="{{r}}">{{r}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-button color="primary" class="m-auto d-block" (click)="swap()" >Swap</button>
+  <mat-form-field class="example-form-field ">
+    <mat-label>Currencies List</mat-label>
+    <mat-select matNativeControl [(ngModel)]="toValue" (selectionChange)="result=''">
+      <mat-option *ngFor="let r of rateNames" value="{{r}}">{{r}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<button mat-button color="primary" class="m-auto d-block mt-15" (click)="convert()" [disabled]="!fromValue || !toValue || !value">Convert</button>

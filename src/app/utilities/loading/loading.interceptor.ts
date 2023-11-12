@@ -20,16 +20,18 @@ export class LoadingInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.loadingService.startLoading();
     return next.handle(request)
-    .pipe(
-      tap(
-        (event: HttpEvent<any>) => {
-          if (event.type == HttpEventType.Response) {
-            this.loadingService.stopLoading()          }
-        },
-        (err) => {
-          this.loadingService.stopLoading()        }
-      )
-    );
+      .pipe(
+        tap(
+          (event: HttpEvent<any>) => {
+            if (event.type == HttpEventType.Response) {
+              this.loadingService.stopLoading()
+            }
+          },
+          (err) => {
+            this.loadingService.stopLoading()
+          }
+        )
+      );
     // .pipe(map<HttpEvent<any>, any>((evt: HttpEvent<any>) => {
     //   if (evt instanceof HttpResponse) {
     //     this.loadingService.stopLoading()
@@ -41,8 +43,8 @@ export class LoadingInterceptor implements HttpInterceptor {
     //     return err;
     //   }))
     //   .pipe(finalize(()=>this.loadingService.stopLoading()));
-      
-    
+
+
 
   }
 }
