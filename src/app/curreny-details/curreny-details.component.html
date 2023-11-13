@@ -1,3 +1,55 @@
 
-<button mat-button color="primary" class="m-auto d-block mt-15" (click)="redirect()">Home</button>
+<h2>EUR - European Union Euro</h2>
+<button mat-button color="primary" class="ml-max mr-15 d-block" (click)="redirect()">Home</button>
 
+<div class="inputs-warpper flex flex__space-between m-auto">
+    <mat-form-field class="example-form-field ">
+      <mat-label>Value </mat-label>
+      <input matInput type="number" [(ngModel)]="value">
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="result=0;value = 0">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-form-field ">
+      <mat-label>Equals </mat-label>
+      <input matInput type="number" readonly="true" [value]="result">
+  
+    </mat-form-field>
+  
+  </div>
+  <div class="inputs-warpper flex flex__space-between m-auto">
+    <mat-form-field class="example-form-field ">
+      <mat-label>Currencies List</mat-label>
+      <mat-select matNativeControl [(ngModel)]="fromValue" (selectionChange)="result=''">
+        <mat-option *ngFor="let r of rateNames" value="{{r}}">{{r}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button color="primary" class="m-auto d-block" (click)="swap()">Swap</button>
+    <mat-form-field class="example-form-field ">
+      <mat-label>Currencies List</mat-label>
+      <mat-select matNativeControl [(ngModel)]="toValue" (selectionChange)="result=''">
+        <mat-option *ngFor="let r of rateNames" value="{{r}}">{{r}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <button mat-button color="primary" class="m-auto d-block mt-15" (click)="convert()"
+    [disabled]="!fromValue || !toValue || !value">Convert</button>
+  
+
+    <div class="inputs-warpper flex flex__space-between m-auto">
+        <mat-form-field class="example-form-field ">
+          <mat-label>Currencies List</mat-label>
+          <mat-select matNativeControl #ref (selectionChange)="getHistorical(ref.value)">
+            <mat-option *ngFor="let month of months; index as i" value="{{i+1}}">{{month}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-form-field ">
+            <mat-label>Rate</mat-label>
+            <input matInput type="number" readonly="true" [value]="rate">
+        
+          </mat-form-field>
+      </div>
+      
+  
+      
