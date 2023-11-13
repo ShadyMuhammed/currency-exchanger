@@ -39,7 +39,7 @@
 
     <div class="inputs-warpper flex flex__space-between m-auto">
         <mat-form-field class="example-form-field ">
-          <mat-label>Currencies List</mat-label>
+          <mat-label>Select Month</mat-label>
           <mat-select matNativeControl #ref (selectionChange)="getHistorical(ref.value)">
             <mat-option *ngFor="let month of months; index as i" value="{{i+1}}">{{month}}</mat-option>
           </mat-select>
