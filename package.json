@@ -1,6 +1,10 @@
 {
   "name": "cur-ex",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": {
+    "name": "Abdelfattah mohamed",
+    "email": "shady.muhammed94@gmail.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

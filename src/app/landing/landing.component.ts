@@ -7,7 +7,7 @@ import { CurrencyNames } from './models/currencyNames.model';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-  value: number = 0;
+  value: number = 1;
   fromValue?: string;
   toValue?: string;
   ratesDate?: any;
@@ -61,14 +61,15 @@ export class LandingComponent implements OnInit {
     this.getMostPopular();
   }
   getMostPopular = (resetResult?:boolean) => {
+    let choosenCurrency =  this.ratesDate[`${this.fromValue}`];
+    let enteredAmount = this.value || 1;
     this.mostPopular = this.mostPopular.map(c => {
       c.rate = this.ratesDate[c.code];
-      c.equals = (this.base / (this.base / this.ratesDate[`${this.fromValue}`])) / (this.base / this.ratesDate[c.code])
+     
+      c.equals = enteredAmount * (this.base / this.ratesDate[`${this.fromValue}`]) / this.base / this.ratesDate[`${c.code}`]
       return c
     })
     resetResult ? this.result = '':''
-    // console.log(rates)
-
 
   }
 }
