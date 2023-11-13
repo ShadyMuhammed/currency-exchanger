@@ -1,7 +1,7 @@
 export interface ExCurrency {
-    base:string;
-    date:Date;
+    base: string;
+    date: Date;
     rates: {};
-    success:boolean;
-    timestamp:number;
+    success: boolean;
+    timestamp: number;
 }

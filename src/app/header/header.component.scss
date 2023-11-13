@@ -5,6 +5,7 @@
     height: 75px;
     background: #fff;
     z-index: 999;
+
     &__body {
         width: 100%;
     }
@@ -23,7 +24,7 @@
         }
     }
 
-    &__menu {}
+    // &__menu {}
 
     &__center {
         position: absolute;
@@ -47,7 +48,8 @@
         margin-right: 25px;
         cursor: pointer;
         transition: .3s ease;
-        &:hover{
+
+        &:hover {
             color: purple;
         }
 

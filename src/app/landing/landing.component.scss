@@ -1,10 +1,11 @@
-.inputs-warpper{
+.inputs-warpper {
     width: 600px;
 }
-.grid{
+
+.grid {
     width: 800px;
-    
-    &__item{
+
+    &__item {
         width: calc((100% / 3) - 50px);
         max-width: calc((100% / 3) - 30px);
         padding: 15px;

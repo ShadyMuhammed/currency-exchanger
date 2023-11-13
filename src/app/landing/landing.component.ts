@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExServices } from '../ex-service.service';
+import { ExServices } from '../services/ex-service.service';
 import { CurrencyNames } from './models/currencyNames.model';
 @Component({
   selector: 'app-landing',
@@ -60,16 +60,14 @@ export class LandingComponent implements OnInit {
     this.value ? this.convert() : this.result = "";
     this.getMostPopular();
   }
-  getMostPopular = (resetResult?:boolean) => {
-    let choosenCurrency =  this.ratesDate[`${this.fromValue}`];
+  getMostPopular = (resetResult?: boolean) => {
     let enteredAmount = this.value || 1;
     this.mostPopular = this.mostPopular.map(c => {
       c.rate = this.ratesDate[c.code];
-     
       c.equals = enteredAmount * (this.base / this.ratesDate[`${this.fromValue}`]) / this.base / this.ratesDate[`${c.code}`]
       return c
     })
-    resetResult ? this.result = '':''
+    resetResult ? this.result = '' : ''
 
   }
 }

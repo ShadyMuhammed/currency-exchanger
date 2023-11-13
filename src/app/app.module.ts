@@ -10,18 +10,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
-import { ExServices } from './ex-service.service';
+import { ExServices } from './services/ex-service.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { LoadingInterceptor } from './utilities/loading/loading.interceptor';
 import { LoadingService } from './services/loading.service';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { ToastrModule } from 'ngx-toastr';
+import { CurrenyDetailsComponent } from './curreny-details/curreny-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    HeaderComponent
+    HeaderComponent,
+    CurrenyDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,11 +38,11 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
-    
+
   ],
   providers: [
     ExServices,
-    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true},
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
     LoadingService
   ],
   bootstrap: [AppComponent]

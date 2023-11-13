@@ -10,11 +10,11 @@ export class LoadingService {
   // public readonly loading$ = this.loading.asObservable(); 
   constructor(private ngxService: NgxUiLoaderService) { }
 
-  startLoading(){
+  startLoading() {
     this.ngxService.start();
   }
 
-  stopLoading(){
+  stopLoading() {
     this.ngxService.stop();
   }
 }
